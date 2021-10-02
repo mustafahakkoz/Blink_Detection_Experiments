@@ -38,18 +38,28 @@
 - Analyzing blink detection problem with timeseries approach. The goal is to make 3 thresholds adaptive to any situation.
 
 - To make the threshold SKIP_FIRST_FRAMES adaptive, converging slope of linear fitting line is used.
+  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada1.png" alt="" height="200">
 
 - Instead of using a constant value for EAR_THRESHOLD, outlier detection is used. 3 different methods IQR, confidence intervals and limiting z values are experimented.
+  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada2.png" alt="" height="200">
 
 - To overcome the issue with false blinks while yawning and smiling, *Error of EAR-EWMA (exponentially weighted moving average)* is used insted of direct usage of EAR values in outlier detection.
+  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada3.png" alt="" height="100">
+  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada4.png" alt="" height="200">
 
 - For the third threshold EAR_CONSEC_FRAMES, the relation between significant values of PACF plot and blink durations, is examined.
+  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada7.png" alt="" height="300">
 
 - Stationarity analysis, Dickey-Fuller test, rolling mean, exponentially decaying and time-shifting and confidence intervals are used to build a handcrafted function to estimate significant values of PACF.
+  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada8.png" alt="" height="300">
 
 - Another method, grid search with ARIMA, is tested. Best parameters of ARIMA is found then p value is chosen as significant value of PACF.
+  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada9.png" alt="" height="300">
 
 - Other experiments on exploring RSI (Relative Strength Indicator), CasualImpact.
+  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada5.png" alt="" height="100">
+  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada6.png" alt="" height="200">
+  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada10.png" alt="" height="300">
 
 - After all of these experiments, the most efficient adaptive model is decided as a pipeline of ``EWMA + outlier detection with z values + guessing significant points of PACF``. 
 
