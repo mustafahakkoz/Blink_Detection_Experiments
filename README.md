@@ -44,7 +44,7 @@
   <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada2.png" alt="" height="200">
 
 - To overcome the issue with false blinks while yawning and smiling, *Error of EAR-EWMA (exponentially weighted moving average)* is used insted of direct usage of EAR values in outlier detection.
-  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada3.png" alt="" height="100">
+  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada3.png" alt="" height="30">
   <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada4.png" alt="" height="200">
 
 - For the third threshold EAR_CONSEC_FRAMES, the relation between significant values of PACF plot and blink durations, is examined.
@@ -54,10 +54,10 @@
   <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada8.png" alt="" height="300">
 
 - Another method, grid search with ARIMA, is tested. Best parameters of ARIMA is found then p value is chosen as significant value of PACF.
-  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada9.png" alt="" height="300">
+  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada9.png" alt="" height="200">
 
 - Other experiments on exploring RSI (Relative Strength Indicator), CasualImpact.
-  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada5.png" alt="" height="100">
+  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada5.png" alt="" height="40">
   <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada6.png" alt="" height="200">
   <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada10.png" alt="" height="300">
 
