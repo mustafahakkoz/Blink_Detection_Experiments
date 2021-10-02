@@ -47,7 +47,7 @@
   <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada3.png" alt="" height="30">
   <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada4.png" alt="" height="200">
 
-- For the third threshold EAR_CONSEC_FRAMES, the relation between significant values of PACF plot and blink durations, is examined.
+- For the third threshold EAR_CONSEC_FRAMES, the relation between significant values of PACF plot and blink durations, is examined.  
   <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada7.png" alt="" height="300">
 
 - Stationarity analysis, Dickey-Fuller test, rolling mean, exponentially decaying and time-shifting and confidence intervals are used to build a handcrafted function to estimate significant values of PACF.
