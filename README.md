@@ -12,6 +12,26 @@
 
 ---
 
+#### Online Notebooks:
+
+1. [Simple model](https://www.kaggle.com/hakkoz/eye-blink-detection-1-simple-model)
+
+2. [Adaptive model](https://www.kaggle.com/hakkoz/eye-blink-detection-2-adaptive-model-v2)
+
+3. a. [ML model part-1](https://www.kaggle.com/hakkoz/eye-blink-detection-3-ml-model-part1)
+
+   b. [ML model part-2](https://www.kaggle.com/hakkoz/eye-blink-detection-3-ml-model-part2)
+
+4. [Comparison of models](https://www.kaggle.com/hakkoz/eye-blink-detection-4-comparison)
+
+5. a. [Utility script-1](https://www.kaggle.com/hakkoz/utils)
+
+   b. [Utility script-2](https://www.kaggle.com/hakkoz/utils2)
+
+   c. [Utility script-3](https://www.kaggle.com/hakkoz/utils3)
+
+---
+
 #### Repo Content and Implementation Steps:
 
 [**eye-blink-detection-1-simple-model.ipynb**](https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/eye-blink-detection-1-simple-model.ipynb)
@@ -31,7 +51,7 @@
   SKIP_FIRST_FRAMES = 0 
   ```
 
-- Building a pipeline to read videos and annotations of *TalkingFace* dataset, to evaluate the simple model on it and to write / to read output files.
+- Building a pipeline to read videos and annotations of [TalkingFace](https://personalpages.manchester.ac.uk/staff/timothy.f.cootes/data/talking_face/talking_face.html) dataset, to evaluate the simple model on it and to write / to read output files.
 
 [**eye-blink-detection-2-adaptive-model.ipynb**](https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/eye-blink-detection-2-adaptive-model.ipynb)
 
@@ -53,14 +73,43 @@
 - Stationarity analysis, Dickey-Fuller test, rolling mean, exponentially decaying and time-shifting and confidence intervals are used to build a handcrafted function to estimate significant values of PACF.
   <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada8.png" alt="" height="300">
 
-- Another method, grid search with ARIMA, is tested. Best parameters of ARIMA is found then p value is chosen as significant value of PACF.
+- Another method, grid search with ARIMA, is tested. Best parameters of ARIMA is found then p value is chosen as significant value of PACF.  
   <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada9.png" alt="" height="200">
 
-- Other experiments on exploring RSI (Relative Strength Indicator), CasualImpact.
+- Other experiments on exploring RSI (Relative Strength Indicator), CasualImpact.  
   <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada5.png" alt="" height="40">
   <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada6.png" alt="" height="200">
   <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ada10.png" alt="" height="300">
 
 - After all of these experiments, the most efficient adaptive model is decided as a pipeline of ``EWMA + outlier detection with z values + guessing significant points of PACF``. 
+
+[**eye-blink-detection-3-ml-model-part1.ipynb**](https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/eye-blink-detection-3-ml-model-part1.ipynb)
+
+- For this part [Eyeblink8](https://www.blinkingmatters.com/research) dataset is processed to get EAR values and annotations to train ML models in classification phase.
+
+[**eye-blink-detection-3-ml-model-part2.ipynb**](https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/eye-blink-detection-3-ml-model-part2.ipynb)
+
+- For this part, the ML model described in the paper by Soukupova and Cech (2016) is implemented. Output dataframes of part-1 is used. (n x 13) matrix of training set is constructed. Columns are defining ``13 frame window (6 previous frames + current frame + 6 next frames)``. Then the model is evaluated on same test set (TalkingFace).  
+  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/ml1.png" alt="" height="300">
+
+- Another SVM implementation by https://github.com/rezaghoddoosian/Early-Drowsiness-Detection is tested and compared with our results. But it was an old version of SVC (scikit<0.18) and its **predict()** method gives error so manual implementation of rbf prediction method is developed. (see https://stackoverflow.com/questions/28593684/replication-of-scikit-svm-srv-predictx)
+
+[**eye-blink-detection-4-comparison.ipynb**](https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/eye-blink-detection-4-comparison.ipynb)
+
+- Comparison of 4 models: simple model, adaptive model, ml model, ml model from RLDD.  
+  <img title="" src="https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/images/newplot.png" alt="" height="400">
+
+[**utils.py**](https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/utils/utils.py)
+
+- Utility functions based on "eye_blink_detection_1_simple_model.ipynb".
+
+[**utils2.py**](https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/utils/utils2.py)
+
+- Utility functions based on "eye_blink_detection_2_adaptive_model.ipynb".
+
+[**utils3.py**](https://github.com/mustafahakkoz/Blink_Detection_Experiments/blob/main/utils/utils3.py)
+
+- Utility functions based on "eye_blink_detection_3_ml_model_part1" and "eye_blink_detection_3_ml_model_part2".
+
 
 
